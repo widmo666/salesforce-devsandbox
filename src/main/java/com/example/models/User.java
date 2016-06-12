@@ -20,6 +20,7 @@ public class User {
 		this.lastName = "Wójtowicz";
 		this.email = "michal.wojtowicz@ttms.pl";
 		this.description = "Author of this webservice";
+		this.specialInformation = getSpecialInformation();
 	}
 	
 	public String getFirstName() {

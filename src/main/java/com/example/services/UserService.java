@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import com.example.models.User;
 
 @Path("/user")
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class UserService {
 	
 	@GET
