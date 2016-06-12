@@ -1,10 +1,10 @@
 package com.example.models;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.sun.jersey.core.util.Base64;
 
 @XmlRootElement
 public class User {
@@ -48,14 +48,18 @@ public class User {
 		this.description = description;
 	}
 	public String generateSpecialInformation() {
-		String resutl = "";
-		resutl += "Time: "+String.valueOf(new Date())+";";
-		resutl += "FirstName: "+ getFirstName()+";";
-		resutl += "LastName: "+getLastName()+";";
-		resutl += "Email: "+ getEmail()+";";
-		resutl += "Description: "+ getDescription()+";";
-		//return String.valueOf(Base64.encode(resutl.getBytes()));
-		return resutl;
+		try {
+			String resutl = "";
+			resutl += "Time: "+String.valueOf(new Date())+";";
+			resutl += "FirstName: "+ getFirstName()+";";
+			resutl += "LastName: "+getLastName()+";";
+			resutl += "Email: "+ getEmail()+";";
+			resutl += "Description: "+ getDescription()+";";
+			return Base64.getEncoder().encodeToString(resutl.getBytes("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "generateSpecialInformation FAIL!";
+		}
 	}
 	public void setSpecialInformation(String specialInformation) {
 		this.specialInformation = specialInformation;
