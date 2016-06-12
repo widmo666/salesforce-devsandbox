@@ -19,8 +19,8 @@ public class User {
 		this.firstName = "Michał";
 		this.lastName = "Wójtowicz";
 		this.email = "michal.wojtowicz@ttms.pl";
-		this.description = "Author of this webservice";
-		this.specialInformation = getSpecialInformation();
+		this.description = "Author of this webservice"; 
+		this.specialInformation = generateSpecialInformation();
 	}
 	
 	public String getFirstName() {
@@ -47,16 +47,21 @@ public class User {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getSpecialInformation() {
-		specialInformation = "";
-		specialInformation += "Time: "+String.valueOf(new Date())+";";
-		specialInformation += "FirstName: "+ getFirstName()+";";
-		specialInformation += "LastName: "+getLastName()+";";
-		specialInformation += "Email: "+ getEmail()+";";
-		specialInformation += "Description: "+ getDescription()+";";
-		return String.valueOf(Base64.encode(specialInformation.getBytes()));
+	public String generateSpecialInformation() {
+		String resutl = "";
+		resutl += "Time: "+String.valueOf(new Date())+";";
+		resutl += "FirstName: "+ getFirstName()+";";
+		resutl += "LastName: "+getLastName()+";";
+		resutl += "Email: "+ getEmail()+";";
+		resutl += "Description: "+ getDescription()+";";
+		//return String.valueOf(Base64.encode(resutl.getBytes()));
+		return resutl;
 	}
 	public void setSpecialInformation(String specialInformation) {
 		this.specialInformation = specialInformation;
+	}
+
+	public String getSpecialInformation() {
+		return specialInformation;
 	}
 }
