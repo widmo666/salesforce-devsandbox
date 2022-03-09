@@ -16,10 +16,10 @@ public class User {
 	public String specialInformation;
 	
 	public User(){
-		this.firstName = "Michał";
-		this.lastName = "Wójtowicz";
-		this.email = "michal.wojtowicz@billennium.com";
-		this.description = "Author of this webservice"; 
+		this.firstName = "hidden";
+		this.lastName = "hidden";
+		this.email = "hidden";
+		this.description = "hidden"; 
 		this.specialInformation = generateSpecialInformation();
 	}
 	
@@ -49,13 +49,15 @@ public class User {
 	}
 	public String generateSpecialInformation() {
 		try {
-			String resutl = "";
-			resutl += "Time: "+String.valueOf(new Date())+";";
-			resutl += "FirstName: "+ getFirstName()+";";
-			resutl += "LastName: "+getLastName()+";";
-			resutl += "Email: "+ getEmail()+";";
-			resutl += "Description: "+ getDescription()+";";
-			return Base64.getEncoder().encodeToString(resutl.getBytes("UTF-8"));
+			String result = "{";
+			result += "Time : "+String.valueOf(new Date())+",";
+			result += "FirstName : Michał;";
+			result += "LastName : Wójtowicz;";
+			result += "Email : michal.wojtowicz@billennium.com;";
+			result += "Description : Welcome down to my planet Hell;";
+			result += "Additional Content : https://www.youtube.com/watch?v=9v0hGUTtkt0;";
+			result += "}";
+			return Base64.getEncoder().encodeToString(result.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return "generateSpecialInformation FAIL!";
