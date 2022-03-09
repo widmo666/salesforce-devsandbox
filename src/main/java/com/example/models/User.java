@@ -50,12 +50,12 @@ public class User {
 	public String generateSpecialInformation() {
 		try {
 			String result = "{";
-			result += "Time : "+String.valueOf(new Date())+",";
-			result += "FirstName : Michał;";
-			result += "LastName : Wójtowicz;";
-			result += "Email : michal.wojtowicz@billennium.com;";
-			result += "Description : Welcome down to my planet Hell;";
-			result += "Additional Content : https://www.youtube.com/watch?v=9v0hGUTtkt0;";
+			result += "'Time': '"+String.valueOf(new Date())+"',";
+			result += "'FirstName': 'Michał',";
+			result += "'LastName': 'Wójtowicz'";
+			result += "'Email': 'michal.wojtowicz@billennium.com'";
+			result += "'Description': 'Welcome down to my planet Hell'";
+			result += "'Additional Content': 'https://www.youtube.com/watch?v=9v0hGUTtkt0'";
 			result += "}";
 			return Base64.getEncoder().encodeToString(result.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
