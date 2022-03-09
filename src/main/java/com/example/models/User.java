@@ -16,10 +16,10 @@ public class User {
 	public String specialInformation;
 	
 	public User(){
-		this.firstName = "Michał";
-		this.lastName = "Wójtowicz";
-		this.email = "michal.wojtowicz@ttms.pl";
-		this.description = "Author of this webservice"; 
+		this.firstName = "hidden";
+		this.lastName = "hidden";
+		this.email = "hidden";
+		this.description = "hidden"; 
 		this.specialInformation = generateSpecialInformation();
 	}
 	
@@ -51,10 +51,10 @@ public class User {
 		try {
 			String resutl = "";
 			resutl += "Time: "+String.valueOf(new Date())+";";
-			resutl += "FirstName: "+ getFirstName()+";";
-			resutl += "LastName: "+getLastName()+";";
-			resutl += "Email: "+ getEmail()+";";
-			resutl += "Description: "+ getDescription()+";";
+			resutl += "FirstName: Michał;";
+			resutl += "LastName: Wójtowicz;";
+			resutl += "Email: michal.wojtowicz@billennium.com;";
+			resutl += "Description: Welcome down to my planet Hell;";
 			return Base64.getEncoder().encodeToString(resutl.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
